@@ -10,6 +10,7 @@ import { UsersModule } from './users/users.module';
 import { RolesModule } from './roles/roles.module';
 import { AuthModule } from './auth/auth.module';
 import { SeedService } from './seed/seed.service';
+import { AppointmentsModule } from './Appointments/appointments.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { SeedService } from './seed/seed.service';
     UsersModule,
     RolesModule,
     AuthModule,
+    AppointmentsModule,
   ],
   providers: [
     SeedService,
