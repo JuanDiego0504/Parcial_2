@@ -16,12 +16,12 @@ export class UsersService {
     private readonly rolesRepo: Repository<Role>,
   ) {}
 
-  // GET /users  (admin)
+
   findAll(): Promise<User[]> {
     return this.usersRepo.find({ relations: ['roles'] });
   }
 
-  // usado por GET /users/me y otros
+  
   async findById(id: string): Promise<User> {
     const user = await this.usersRepo.findOne({
       where: { id },
@@ -35,7 +35,7 @@ export class UsersService {
     return user;
   }
 
-  // usado por register y login
+  
   findByEmail(email: string): Promise<User | null> {
     return this.usersRepo.findOne({
       where: { email },
@@ -43,13 +43,12 @@ export class UsersService {
     });
   }
 
-  // crear usuario (desde register)
+  
   async create(data: Partial<User>): Promise<User> {
     const user = this.usersRepo.create(data);
     return this.usersRepo.save(user);
   }
 
-  // PATCH /users/:id/roles (admin)
   async assignRolesToUser(id: string, dto: AssignRolesDto) {
     const user = await this.usersRepo.findOne({
       where: { id },
