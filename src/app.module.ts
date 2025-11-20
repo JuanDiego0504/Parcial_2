@@ -11,6 +11,7 @@ import { RolesModule } from './roles/roles.module';
 import { AuthModule } from './auth/auth.module';
 import { SeedService } from './seed/seed.service';
 import { AppointmentsModule } from './Appointments/appointments.module';
+import { Appointment } from './Appointments/entities/appointment.entity';
 
 @Module({
   imports: [
@@ -22,7 +23,7 @@ import { AppointmentsModule } from './Appointments/appointments.module';
       username: 'postgres',
       password: 'slade0504',
       database: 'users_roles_db',
-      entities: [User, Role],
+      entities: [User, Role, Appointment],
       synchronize: true,
       dropSchema: true,
     }),
